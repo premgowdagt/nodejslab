@@ -1,0 +1,29 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: nodejs-canary
+  namespace: default
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: node-hello-deployment
+  service:
+    port: 80
+    targetPort: 3000
+    gateways:
+      - nodejs-gateway
+    hosts:
+      - "*"  # Replace with your domain
+  analysis:
+    interval: 30s # Interval between checks
+    threshold: 5 # Number of failed checks before rollback
+    maxWeight: 50 # Maximum traffic percentage routed to canary
+    stepWeight: 10 # Traffic increment percentage per step
+    metrics:
+      - name: request-success-rate
+        threshold: 95 # Success rate percentage
+        interval: 30s
+      - name: request-duration
+        threshold: 500 # Maximum allowed request duration in ms
+        interval: 30s

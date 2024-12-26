@@ -11,4 +11,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "node-hello.example.com"  # Your domain or hostname
+    - "*"  # Your domain or hostname

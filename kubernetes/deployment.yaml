@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node-hello-container
-          image: premgowda07/nodejsapplication:latest
+          image: premgowda07/nodejsapplication:v3
   # Use your Docker image name
           ports:
             - containerPort: 3000

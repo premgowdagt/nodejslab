@@ -1,1 +1,28 @@
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-hello-deployment
+spec:
+  replicas: 2  # Number of pod replicas
+  selector:
+    matchLabels:
+      app: node-hello
+  template:
+    metadata:
+      labels:
+        app: node-hello
+    spec:
+      containers:
+        - name: node-hello-container
+          image: premgowda07/node-hello-app:latest
+  # Use your Docker image name
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          env:
+            - name: NODE_ENV
+              value: "production"

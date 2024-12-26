@@ -1,14 +1,14 @@
-apiVersion: networking.istio.io/v1beta1
-kind: Gateway
-metadata:
-  name: node-hello-gateway
-spec:
-  selector:
-    istio: ingressgateway  # Targets Istio's ingress gateway
-  servers:
-  - port:
-      number: 80           # External port for incoming traffic
-      name: http
-      protocol: HTTP
-    hosts:
-    - "*"  # Your domain or hostname
+# apiVersion: networking.istio.io/v1beta1
+# kind: Gateway
+# metadata:
+#   name: node-hello-gateway
+# spec:
+#   selector:
+#     istio: ingressgateway  # Targets Istio's ingress gateway
+#   servers:
+#   - port:
+#       number: 80           # External port for incoming traffic
+#       name: http
+#       protocol: HTTP
+#     hosts:
+#     - "*"  # Your domain or hostname
